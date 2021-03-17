@@ -1,5 +1,6 @@
 import * as React from "react";
 import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 // styles
 const pageStyles = {
@@ -130,6 +131,7 @@ const links = [
 const IndexPage = () => {
   return (
     <Layout>
+      <SEO tile={"Home Page"} />
       <div>Hello World</div>
     </Layout>
   );
