@@ -1,6 +1,7 @@
 import * as React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
+import { graphql } from "gatsby";
 
 // styles
 const pageStyles = {
@@ -128,13 +129,29 @@ const links = [
 ];
 
 // markup
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const posts = data.allMdx.nodes;
   return (
     <Layout>
       <SEO tile={"Home Page"} />
-      <div>Hello World</div>
+      {posts.map((post) => {
+        return <h2>{post.frontmatter.title}</h2>;
+      })}
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  {
+    allMdx(sort: { fields: [frontmatter___title], order: ASC }) {
+      nodes {
+        slug
+        frontmatter {
+          title
+        }
+      }
+    }
+  }
+`;
 
 export default IndexPage;
