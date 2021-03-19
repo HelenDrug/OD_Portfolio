@@ -1,9 +1,16 @@
-import React from "react";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+//import React from "react";
 import { Link } from "gatsby";
+
+const bodyStyles = {
+  mx: `2rem`,
+  padding: `1rem`,
+};
 
 const LayOut = ({ children }) => {
   return (
-    <div>
+    <div sx={bodyStyles}>
       <header>
         <nav>
           <Link to="/">Home</Link>
