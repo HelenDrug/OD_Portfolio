@@ -1,7 +1,7 @@
 import * as React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 
 // styles
 const pageStyles = {
@@ -135,7 +135,11 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO tile={"Home Page"} />
       {posts.map((post) => {
-        return <h2>{post.frontmatter.title}</h2>;
+        return (
+          <Link to={post.slug} key={post.slug}>
+            <h2>{post.frontmatter.title}</h2>
+          </Link>
+        );
       })}
     </Layout>
   );
