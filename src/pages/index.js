@@ -2,14 +2,20 @@ import * as React from "react";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { graphql, Link } from "gatsby";
-
+import { StaticImage } from "gatsby-plugin-image";
 
 // markup
 const IndexPage = ({ data }) => {
   const posts = data.allMdx.nodes;
   return (
     <Layout>
-      <SEO tile={"Home Page"} />
+      <SEO title={"Home Page"} />
+      <StaticImage
+        src="https://images.unsplash.com/photo-1615998494929-0855eb058e88?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1506&q=80"
+        alt="Cover photo"
+        layout="fullWidth"
+        aspectRatio={21 / 9}
+      />
       {posts.map((post) => {
         return (
           <Link to={post.slug} key={post.slug}>

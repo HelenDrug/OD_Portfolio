@@ -21,5 +21,7 @@ module.exports = {
         prismPreset: `prism-okaidia`,
       },
     },
+    `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`
   ],
 };
